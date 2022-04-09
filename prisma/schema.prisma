@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id            Int         @id @default(autoincrement())
+  createdAt     DateTime    @default(now())
+  title         String      @unique
+  groups        Group[]
+}
+
+model Group {
+  id            Int         @id @default(autoincrement())
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  title         String      @unique
+  profile       Profile     @relation(fields: [pofileId], references: [id])
+  pofileId      Int
+  bookmarks     Bookmark[]
+}
+
+model Bookmark {
+  id            Int         @id @default(autoincrement())
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  title         String
+  url           String
+  favicon       Bytes?
+  private       Boolean     @default(false)
+  group         Group       @relation(fields: [groupId], references: [id])
+  groupId       Int
+  tags          Tag[]
+}
+
+model Tag {
+  id            Int         @id @default(autoincrement())
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  title         String
+  color         String?
+  bookmark      Bookmark    @relation(fields: [bookmarkId], references: [id])
+  bookmarkId    Int
+}

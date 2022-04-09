@@ -1,14 +1,19 @@
 {
   "name": "zenbook",
-  "version": "0.1.0",
+  "version": "1.0.0-SNAPSHOT",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
+    "@prisma/client": "3.11.1",
+    "@types/jest": "27.4.1",
+    "dayjs": "1.11.0",
+    "jest": "27.5.1",
     "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0"
@@ -19,6 +24,8 @@
     "@types/react-dom": "17.0.14",
     "eslint": "8.12.0",
     "eslint-config-next": "12.1.4",
+    "prisma": "3.11.1",
+    "jest-mock-extended": "2.0.4",
     "typescript": "4.6.3"
   }
 }
