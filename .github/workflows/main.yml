@@ -15,16 +15,53 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+       # This step uses the actions/setup-node@v3 action to install the specified version of the Node.js (this example uses v14). This puts both the node and npm commands in your PATH.
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
 
-      # Runs a single command using the runners shell
-      - name: next build
-        run: npm run "next build"
+      - name: install dependencies
+        run: yarn
+      - name: build
+        run: npm run build
+  eslint:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+       # This step uses the actions/setup-node@v3 action to install the specified version of the Node.js (this example uses v14). This puts both the node and npm commands in your PATH.
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: install dependencies
+        run: yarn
+      - name: eslint
+        run: npm run lint
+        
+  test:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+       # This step uses the actions/setup-node@v3 action to install the specified version of the Node.js (this example uses v14). This puts both the node and npm commands in your PATH.
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: install dependencies
+        run: yarn
+      - name: test
+        run: npm run test
+
