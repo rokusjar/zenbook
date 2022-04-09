@@ -1,7 +1,7 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
-import PrismaService from "./PrismaService";
-import ProfileService from "./services/ProfileService";
-import HttpRequestType from "./model/HttpRequestType";
+import PrismaService from './PrismaService';
+import ProfileService from './services/ProfileService';
+import HttpRequestType from './model/HttpRequestType';
 
 export type Data = {
     data: any;

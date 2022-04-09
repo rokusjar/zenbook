@@ -1,7 +1,8 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { PrismaClient } from '@prisma/client'
 import { mockDeep, mockReset, DeepMockProxy } from 'jest-mock-extended'
-import PrismaService from "./PrismaService";
+import PrismaService from './PrismaService';
 
 /**
  * Used to mock PrismaService for the API unit tests.

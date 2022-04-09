@@ -1,8 +1,8 @@
-import PrismaService from "../PrismaService";
-import dayjs from "dayjs";
-import ProfileDto from "../dto/ProfileDto";
-import Validators from "../utils/Validators";
-import ApiErrors from "../utils/ApiErrors";
+import PrismaService from '../PrismaService';
+import dayjs from 'dayjs';
+import ProfileDto from '../dto/ProfileDto';
+import Validators from '../utils/Validators';
+import ApiErrors from '../utils/ApiErrors';
 
 export default class ProfileService {
 
